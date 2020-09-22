@@ -1,6 +1,10 @@
 ## [Máster en Ingeniería Web por la Universidad Politécnica de Madrid (miw-upm)](http://miw.etsisi.upm.es)
 ## Ingeniería Web: Visión General (IWVG) DevOps
 > Este proyecto es una Plantilla de apoyo docente de la asignatura.
+>
+>###Estado del código
+>[![Build Status](https://travis-ci.org/mikelsanabria11/iwvg-devops-mikel-sanabria2.svg?branch=develop)](https://travis-ci.org/mikelsanabria11/iwvg-devops-mikel-sanabria2)
+>[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=es.upm.miw%3Aiwvg-devops-mikel-sanabria2&metric=alert_status)](https://sonarcloud.io/dashboard?id=es.upm.miw%3Aiwvg-devops-mikel-sanabria2)
 
 ### :gear: Instalación del proyecto
 1. Clonar el repositorio en tu equipo, **mediante consola**:
@@ -12,3 +16,4 @@
    1. **Import Project**, y seleccionar la carpeta del proyecto.
    1. Marcar **Create Project from external model**, elegir **Maven**.
    1. **Next** … **Finish**.
+   
