@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class FractionTest {
     private Fraction fraction;
 
@@ -14,19 +16,59 @@ public class FractionTest {
 
     @Test
     void testFraction() {
-        Assertions.assertEquals(2, fraction.getNumerator());
-        Assertions.assertEquals(5, fraction.getDenominator());
+        assertEquals(2, fraction.getNumerator());
+        assertEquals(5, fraction.getDenominator());
     }
 
     @Test
     void testFractionGeneric() {
         fraction = new Fraction();
-        Assertions.assertEquals(1, fraction.getNumerator());
-        Assertions.assertEquals(1, fraction.getDenominator());
+        assertEquals(1, fraction.getNumerator());
+        assertEquals(1, fraction.getDenominator());
     }
 
     @Test
     void testDecimal() {
-        Assertions.assertEquals(0.4, fraction.decimal());
+        assertEquals(0.4, fraction.decimal());
+    }
+
+    @Test
+    void testIsProper() {
+        assertEquals(true, fraction.isProper());
+    }
+
+    @Test
+    void testIsImproper() {
+        assertEquals(false, fraction.isImproper());
+    }
+
+    @Test
+    void testIsEquivalent() {
+        Fraction equivalentFraction = new Fraction(4,10);
+        assertEquals(true, fraction.isEquivalent(equivalentFraction));
+    }
+
+    @Test
+    void testAdd() {
+        Fraction fractionToAdd = new Fraction(4,10);
+        Fraction result = fraction.add(fractionToAdd);
+        assertEquals(40, result.getNumerator());
+        assertEquals(50, result.getDenominator());
+    }
+
+    @Test
+    void testMultiply() {
+        Fraction fractionToMultiply = new Fraction(4,10);
+        Fraction result = fraction.multiply(fractionToMultiply);
+        assertEquals(8, result.getNumerator());
+        assertEquals(50, result.getDenominator());
+    }
+
+    @Test
+    void testDivide() {
+        Fraction fractionToDivide = new Fraction(4,10);
+        Fraction result = fraction.divide(fractionToDivide);
+        assertEquals(20, result.getNumerator());
+        assertEquals(20, result.getDenominator());
     }
 }
