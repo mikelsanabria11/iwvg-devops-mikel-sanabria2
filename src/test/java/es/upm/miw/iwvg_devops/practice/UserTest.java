@@ -9,10 +9,10 @@ import java.util.ArrayList;
 public class UserTest {
     private User user;
     private List<Fraction> fractions;
+    private Fraction fraction = new Fraction();
 
     @BeforeEach
     void before() {
-        Fraction fraction = new Fraction();
         fractions = new ArrayList<>();
         fractions.add(fraction);
         user = new User("001", "Mikel", "Sanabria", fractions);
@@ -33,5 +33,21 @@ public class UserTest {
         Assertions.assertNull(user.getName());
         Assertions.assertNull(user.getFamilyName());
         Assertions.assertEquals(0, user.getFractions().size());
+    }
+
+    @Test
+    void testAddFraction() {
+        user.addFraction(fraction);
+        Assertions.assertEquals(2, user.getFractions().size());
+    }
+
+    @Test
+    void testFullName() {
+        Assertions.assertEquals("Mikel Sanabria", user.fullName());
+    }
+
+    @Test
+    void testInitials() {
+        Assertions.assertEquals("M.", user.initials());
     }
 }
