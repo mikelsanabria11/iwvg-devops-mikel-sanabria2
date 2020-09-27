@@ -55,37 +55,43 @@ public class Fraction {
     }
 
     public Fraction add(Fraction fraction) {
-        int l_numerator;
-        int l_denominator;
+        int lNumerator;
+        int lDenominator;
         Fraction result = new Fraction();
 
-        assert this.getDenominator() != 0 && fraction.getDenominator() != 0;
-
-        if (this.getDenominator() == fraction.getDenominator()) {
-            l_numerator = this.getNumerator() + fraction.getNumerator();
-            l_denominator = this.getDenominator();
-        } else {
-            l_numerator = this.getNumerator() * fraction.getDenominator() + fraction.getNumerator() * this.getDenominator();
-            l_denominator = this.getDenominator() * fraction.getDenominator();
+        if (this.getDenominator() != 0 && fraction.getDenominator() != 0) {
+            if (this.getDenominator() == fraction.getDenominator()) {
+                lNumerator = this.getNumerator() + fraction.getNumerator();
+                lDenominator = this.getDenominator();
+            } else {
+                lNumerator = this.getNumerator() * fraction.getDenominator() + fraction.getNumerator() * this.getDenominator();
+                lDenominator = this.getDenominator() * fraction.getDenominator();
+            }
+            result.setNumerator(lNumerator);
+            result.setDenominator(lDenominator);
         }
-        result.setNumerator(l_numerator);
-        result.setDenominator(l_denominator);
 
         return result;
     }
 
     public Fraction multiply(Fraction fraction) {
-        assert this.getDenominator() != 0 && fraction.getDenominator() != 0;
-
-        return new Fraction(this.getNumerator() * fraction.getNumerator(),
-                this.getDenominator() * fraction.getDenominator());
+        if (this.getDenominator() != 0 && fraction.getDenominator() != 0) {
+            return new Fraction(this.getNumerator() * fraction.getNumerator(),
+                    this.getDenominator() * fraction.getDenominator());
+        } else {
+            return new Fraction();
+        }
     }
 
     public Fraction divide(Fraction fraction) {
-        assert this.getDenominator() != 0 && fraction.getDenominator() != 0;
+        if (this.getDenominator() != 0 && fraction.getDenominator() != 0) {
+            return new Fraction(this.getNumerator() * fraction.getDenominator(),
+                    this.getDenominator() * fraction.getNumerator());
+        } else {
+            return new Fraction();
+        }
 
-        return new Fraction(this.getNumerator() * fraction.getDenominator(),
-                this.getDenominator() * fraction.getNumerator());
+
     }
 
 }
