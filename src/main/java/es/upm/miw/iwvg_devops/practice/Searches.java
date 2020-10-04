@@ -27,7 +27,8 @@ public class Searches {
         return new UsersDatabase().findAll()
                 .filter(user -> user.getId().equals(id))
                 .flatMap(user -> user.getFractions().stream())
-                .reduce(Fraction::divide).orElse(new Fraction(0,0));
+                .reduce(Fraction::divide)
+                .orElse(new Fraction(0,0));
     }
 
     public Stream<Double> findDecimalFractionByNegativeSignFraction() {
