@@ -70,4 +70,41 @@ public class SearchesTest {
                 .collect(Collectors.toList()));
     }
 
+    @Test
+    void testFindFractionDivisionByUser1() {
+        assertEquals(0, new Searches().findFractionDivisionByUserId("1").getNumerator());
+        assertEquals(2, new Searches().findFractionDivisionByUserId("1").getDenominator());
+    }
+
+    @Test
+    void testFindFractionDivisionByUser2() {
+        assertEquals(120, new Searches().findFractionDivisionByUserId("2").getNumerator());
+        assertEquals(-8, new Searches().findFractionDivisionByUserId("2").getDenominator());
+    }
+
+    @Test
+    void testFindFractionDivisionByUser3() {
+        assertEquals(-48, new Searches().findFractionDivisionByUserId("3").getNumerator());
+        assertEquals(60, new Searches().findFractionDivisionByUserId("3").getDenominator());
+    }
+
+    @Test
+    void testFindFractionDivisionByUser4() {
+        assertEquals(8, new Searches().findFractionDivisionByUserId("4").getNumerator());
+        assertEquals(8, new Searches().findFractionDivisionByUserId("4").getDenominator());
+    }
+
+    @Test
+    void testFindFractionDivisionByUser5() {
+        //assertNull(new Searches().findFractionDivisionByUserId("5"));
+        assertEquals(0, new Searches().findFractionDivisionByUserId("5").getNumerator());
+        assertEquals(0, new Searches().findFractionDivisionByUserId("5").getDenominator());
+    }
+
+    @Test
+    void testFindFractionDivisionByUser6() {
+        assertEquals(0, new Searches().findFractionDivisionByUserId("6").getNumerator());
+        assertEquals(0, new Searches().findFractionDivisionByUserId("6").getDenominator());
+    }
+
 }
