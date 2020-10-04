@@ -4,12 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-public class SearchesTest {
+ class SearchesTest {
 
     @Test
     void testFindFractionAdditionByUser1() {
