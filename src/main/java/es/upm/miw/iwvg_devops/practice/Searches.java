@@ -8,8 +8,8 @@ public class Searches {
         return new UsersDatabase().findAll()
                 .filter(user -> user.getId().equals(id))
                 .flatMap(user -> user.getFractions().stream())
-                .reduce(new Fraction(0,1), (fraction,nextFraction) -> {
-                    if(fraction != null && nextFraction != null){
+                .reduce(new Fraction(0, 1), (fraction, nextFraction) -> {
+                    if (fraction != null && nextFraction != null) {
                         return fraction.add(nextFraction);
                     }
                     return null;
@@ -27,8 +27,7 @@ public class Searches {
         return new UsersDatabase().findAll()
                 .filter(user -> user.getId().equals(id))
                 .flatMap(user -> user.getFractions().stream())
-                .reduce(Fraction::divide)
-                .orElse(new Fraction(0,0));
+                .reduce(Fraction::divide).orElse(new Fraction(0, 0));
     }
 
     public Stream<Double> findDecimalFractionByNegativeSignFraction() {
@@ -37,5 +36,4 @@ public class Searches {
                 .filter(fraction -> fraction.getNumerator() < 0 || fraction.getDenominator() < 0)
                 .map(Fraction::decimal);
     }
-
 }
