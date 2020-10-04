@@ -4,12 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-public class SearchesTest {
+ class SearchesTest {
 
     @Test
     void testFindFractionAdditionByUser1() {
@@ -105,6 +104,12 @@ public class SearchesTest {
     void testFindFractionDivisionByUser6() {
         assertEquals(0, new Searches().findFractionDivisionByUserId("6").getNumerator());
         assertEquals(0, new Searches().findFractionDivisionByUserId("6").getDenominator());
+    }
+
+    @Test
+    void testFindDecimalFractionByNegativeSignFraction() {
+        assertEquals(List.of(-0.2, -0.5, 0.0), new Searches().findDecimalFractionByNegativeSignFraction()
+                .collect(Collectors.toList()));
     }
 
 }

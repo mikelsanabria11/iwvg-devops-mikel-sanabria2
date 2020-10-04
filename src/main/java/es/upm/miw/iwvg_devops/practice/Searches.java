@@ -1,7 +1,5 @@
 package es.upm.miw.iwvg_devops.practice;
 
-import org.apache.logging.log4j.LogManager;
-
 import java.util.stream.Stream;
 
 public class Searches {
@@ -30,6 +28,13 @@ public class Searches {
                 .filter(user -> user.getId().equals(id))
                 .flatMap(user -> user.getFractions().stream())
                 .reduce(Fraction::divide).orElse(new Fraction(0,0));
+    }
+
+    public Stream<Double> findDecimalFractionByNegativeSignFraction() {
+        return new UsersDatabase().findAll()
+                .flatMap(user -> user.getFractions().stream())
+                .filter(fraction -> fraction.getNumerator() < 0 || fraction.getDenominator() < 0)
+                .map(Fraction::decimal);
     }
 
 }
