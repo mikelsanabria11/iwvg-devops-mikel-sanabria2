@@ -31,7 +31,11 @@ public class Fraction {
     }
 
     public double decimal() {
-        return (double) numerator / denominator;
+        if(denominator != 0) {
+            double div = (double) numerator / denominator;
+            return Math.round(div * 10.0) / 10.0;
+        }
+        return Double.NaN;
     }
 
     @Override
