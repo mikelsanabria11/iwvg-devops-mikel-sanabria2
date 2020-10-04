@@ -2,6 +2,10 @@ package es.upm.miw.iwvg_devops.practice;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
@@ -40,6 +44,30 @@ public class SearchesTest {
     @Test
     void testFindFractionAdditionByUser6() {
         assertNull(new Searches().findFractionAdditionByUserId("6"));
+    }
+
+    @Test
+    void testFindDecimalFractionByUserNameOscar() {
+        assertEquals(List.of(0.0, 1.0, 2.0, 0.2, -0.5, 0.5, 1.0), new Searches().findDecimalFractionByUserName("Oscar")
+                .collect(Collectors.toList()));
+    }
+
+    @Test
+    void testFindDecimalFractionByUserNameAna() {
+        assertEquals(List.of(2.0, -0.2, 0.5, 1.3), new Searches().findDecimalFractionByUserName("Ana")
+                .collect(Collectors.toList()));
+    }
+
+    @Test
+    void testFindDecimalFractionByUserNamePaula() {
+        assertEquals(List.of(1.0, 1.0, Double.NaN, Double.NaN, 1.0), new Searches().findDecimalFractionByUserName("Paula")
+                .collect(Collectors.toList()));
+    }
+
+    @Test
+    void testFindDecimalFractionByUserNameAntonio() {
+        assertEquals(List.of(0.0, 0.0, 0.0), new Searches().findDecimalFractionByUserName("Antonio")
+                .collect(Collectors.toList()));
     }
 
 }
