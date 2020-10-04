@@ -57,9 +57,10 @@ public class Fraction {
     public Fraction add(Fraction fraction) {
         int lNumerator;
         int lDenominator;
-        Fraction result = new Fraction();
+        Fraction result = null;
 
         if (this.getDenominator() != 0 && fraction.getDenominator() != 0) {
+            result = new Fraction();
             if (this.getDenominator() == fraction.getDenominator()) {
                 lNumerator = this.getNumerator() + fraction.getNumerator();
                 lDenominator = this.getDenominator();
@@ -79,7 +80,7 @@ public class Fraction {
             return new Fraction(this.getNumerator() * fraction.getNumerator(),
                     this.getDenominator() * fraction.getDenominator());
         } else {
-            return new Fraction();
+            return null;
         }
     }
 
@@ -88,10 +89,8 @@ public class Fraction {
             return new Fraction(this.getNumerator() * fraction.getDenominator(),
                     this.getDenominator() * fraction.getNumerator());
         } else {
-            return new Fraction();
+            return null;
         }
-
-
     }
 
 }
