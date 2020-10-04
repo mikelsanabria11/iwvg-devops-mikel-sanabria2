@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class FractionTest {
     private Fraction fraction;
@@ -78,8 +79,7 @@ public class FractionTest {
     void testAddDenominatorZero() {
         Fraction fractionToAdd = new Fraction(4,0);
         Fraction result = fraction.add(fractionToAdd);
-        assertEquals(1, result.getNumerator());
-        assertEquals(1, result.getDenominator());
+        assertNull(result);
     }
 
     @Test
@@ -102,8 +102,7 @@ public class FractionTest {
     void testMultiplyDenominatorZero() {
         Fraction fractionToMultiply = new Fraction(4,0);
         Fraction result = fraction.multiply(fractionToMultiply);
-        assertEquals(1, result.getNumerator());
-        assertEquals(1, result.getDenominator());
+        assertNull(result);
     }
 
     @Test
@@ -118,7 +117,6 @@ public class FractionTest {
     void testDivideDenominatorZero() {
         Fraction fractionToDivide = new Fraction(4,0);
         Fraction result = fraction.divide(fractionToDivide);
-        assertEquals(1, result.getNumerator());
-        assertEquals(1, result.getDenominator());
+        assertNull(result);
     }
 }
