@@ -93,7 +93,7 @@ public class Fraction {
             return new Fraction(this.getNumerator() * fraction.getDenominator(),
                     this.getDenominator() * fraction.getNumerator());
         } else {
-            return null;
+            return new Fraction(0,0);
         }
     }
 

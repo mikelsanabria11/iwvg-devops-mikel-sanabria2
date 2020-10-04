@@ -24,4 +24,12 @@ public class Searches {
                 .flatMap(user -> user.getFractions().stream())
                 .map(Fraction::decimal);
     }
+
+    public Fraction findFractionDivisionByUserId(String id) {
+        return new UsersDatabase().findAll()
+                .filter(user -> user.getId().equals(id))
+                .flatMap(user -> user.getFractions().stream())
+                .reduce(Fraction::divide).orElse(new Fraction(0,0));
+    }
+
 }

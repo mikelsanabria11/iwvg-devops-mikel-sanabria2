@@ -117,6 +117,7 @@ public class FractionTest {
     void testDivideDenominatorZero() {
         Fraction fractionToDivide = new Fraction(4,0);
         Fraction result = fraction.divide(fractionToDivide);
-        assertNull(result);
+        assertEquals(0, result.getNumerator());
+        assertEquals(0, result.getDenominator());
     }
 }
