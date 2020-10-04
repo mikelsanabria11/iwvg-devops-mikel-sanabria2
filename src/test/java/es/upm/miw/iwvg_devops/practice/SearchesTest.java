@@ -107,4 +107,10 @@ public class SearchesTest {
         assertEquals(0, new Searches().findFractionDivisionByUserId("6").getDenominator());
     }
 
+    @Test
+    void testFindDecimalFractionByNegativeSignFraction() {
+        assertEquals(List.of(-0.2, -0.5, 0.0), new Searches().findDecimalFractionByNegativeSignFraction()
+                .collect(Collectors.toList()));
+    }
+
 }
